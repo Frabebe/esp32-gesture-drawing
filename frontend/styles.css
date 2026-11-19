@@ -1,0 +1,100 @@
+* { box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #090d18;
+  color: #f3f7ff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+#scene {
+  position: fixed;
+  inset: 0;
+}
+
+#scene canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.panel {
+  position: fixed;
+  z-index: 2;
+  top: 16px;
+  left: 16px;
+  width: min(460px, calc(100vw - 32px));
+  padding: 16px;
+  border: 1px solid #263851;
+  border-radius: 12px;
+  background: rgb(5 9 20 / 88%);
+  box-shadow: 0 8px 32px rgb(0 0 0 / 30%);
+}
+
+h1 {
+  margin: 0 0 14px;
+  font-size: 1.15rem;
+}
+
+label { display: block; margin-bottom: 6px; color: #c3d5eb; font-size: .88rem; }
+.row { display: flex; gap: 8px; align-items: center; }
+input {
+  min-width: 0;
+  flex: 1;
+  padding: 9px 10px;
+  border: 1px solid #334964;
+  border-radius: 7px;
+  background: #101a2a;
+  color: white;
+}
+button {
+  padding: 9px 12px;
+  border: 0;
+  border-radius: 7px;
+  background: #20bde5;
+  color: #06121b;
+  font-weight: 700;
+  cursor: pointer;
+}
+button:hover { filter: brightness(1.12); }
+button:focus-visible, input:focus-visible { outline: 2px solid #9deaff; outline-offset: 2px; }
+.actions { margin-top: 12px; }
+button.secondary { background: #263851; color: #f3f7ff; }
+#status { color: #a7ddf2; font-size: .86rem; }
+.help { margin: 12px 0 0; color: #9eacc1; font-size: .78rem; line-height: 1.45; }
+
+#camera {
+  position: fixed;
+  z-index: 1;
+  right: 16px;
+  bottom: 16px;
+  width: min(320px, 38vw);
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transform: scaleX(-1);
+  border: 2px solid #3c9fbc;
+  border-radius: 10px;
+  background: #111827;
+}
+
+.camera-error {
+  position: fixed;
+  z-index: 3;
+  right: 16px;
+  bottom: 16px;
+  max-width: min(320px, 38vw);
+  padding: 10px;
+  border-radius: 8px;
+  background: #421e2a;
+  color: #ffdce3;
+  font-size: .85rem;
+}
+
+@media (max-width: 600px) {
+  .panel { top: 8px; left: 8px; width: calc(100vw - 16px); padding: 12px; }
+  #camera { right: 8px; bottom: 8px; width: 38vw; }
+  .actions { align-items: flex-start; flex-direction: column; }
+}

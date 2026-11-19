@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d18">
+  <title>ESP32 Gesture Drawing</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4/hands.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <main id="scene" aria-label="Canvas 3D"></main>
+
+  <section class="panel" aria-label="Controlli">
+    <h1>ESP32 Gesture Drawing</h1>
+    <form id="connectForm">
+      <label for="streamUrl">Stream camera</label>
+      <div class="row">
+        <input id="streamUrl" type="url" value="http://192.168.1.50/stream" spellcheck="false" required>
+        <button type="submit">Connetti</button>
+      </div>
+    </form>
+    <div class="row actions">
+      <button id="clearButton" type="button" class="secondary">Cancella tutto</button>
+      <span id="status" role="status" aria-live="polite">Inserisci l'indirizzo IP della camera.</span>
+    </div>
+    <p class="help">Pinch: disegna · Due dita: cambia colore · Pugno: annulla l'ultimo tratto</p>
+  </section>
+
+  <img id="camera" alt="Stream video della camera ESP32" crossorigin="anonymous">
+  <div id="cameraError" class="camera-error" hidden>Stream non disponibile: verifica URL e connessione.</div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

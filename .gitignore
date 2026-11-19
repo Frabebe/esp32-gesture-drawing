@@ -1,0 +1,23 @@
+# Generated/dependency files
+node_modules/
+dist/
+coverage/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# Arduino IDE/build artifacts
+.arduino/
+build/
+*.elf
+*.bin
+*.hex
+*.map
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
